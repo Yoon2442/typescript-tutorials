@@ -14,6 +14,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 
 export const optionsAtom = atom(echartOptions);
 export const countAtom = atom(0);
+const queryClient = new QueryClient();
 
 export default function EchartComponent(props: { [x: string]: any }) {
   const { ...rest } = props;
@@ -35,7 +36,15 @@ export default function EchartComponent(props: { [x: string]: any }) {
   const bgFocus = useColorModeValue({ bg: "secondaryGray.300" }, { bg: "whiteAlpha.100" });
   const chartFontColor = useColorModeValue("secondaryGray.600", "white");
 
-  function onClickCountButton(): void {
+  function onClickMinusCountButton(): void {
+    let tempOptions = _.cloneDeep(options);
+    tempOptions.series[0].data[3] -= 10;
+    setOptions(tempOptions);
+    setCount(count - 10);
+    console.log("count", options.series[0].data[3]);
+  }
+
+  function onClickPlusCountButton(): void {
     let tempOptions = _.cloneDeep(options);
     tempOptions.series[0].data[3] += 10;
     setOptions(tempOptions);
@@ -63,14 +72,30 @@ export default function EchartComponent(props: { [x: string]: any }) {
           bg={boxBg}
           ms="auto"
           onClick={() => {
-            onClickCountButton();
+            onClickMinusCountButton();
           }}
           fontSize="sm"
           fontWeight="500"
           color={textColorSecondary}
           borderRadius="7px"
         >
+          Count -
+        </Button>
+        <Button bg={boxBg} ms="auto" fontSize="sm" fontWeight="500" color={textColorSecondary} borderRadius="7px">
           Count : {count}
+        </Button>
+        <Button
+          bg={boxBg}
+          ms="auto"
+          onClick={() => {
+            onClickPlusCountButton();
+          }}
+          fontSize="sm"
+          fontWeight="500"
+          color={textColorSecondary}
+          borderRadius="7px"
+        >
+          Count +
         </Button>
         <Button
           ms="auto"
