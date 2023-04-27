@@ -6,13 +6,13 @@ import { MdBarChart, MdOutlineCalendarToday } from "react-icons/md";
 // Assets
 import { echartOptions } from "variables/charts";
 import ECharts from "echarts-for-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import _ from "lodash";
 
 export default function EchartComponent(props: { [x: string]: any }) {
   const { ...rest } = props;
   const [options, setOptions] = useState(echartOptions);
-  const [count,setCount]=useState(0)
+  const [count, setCount] = useState(0);
   // Chakra Color Mode
   const textColorSecondary = useColorModeValue("secondaryGray.600", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
@@ -20,14 +20,24 @@ export default function EchartComponent(props: { [x: string]: any }) {
   const bgButton = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
   const bgHover = useColorModeValue({ bg: "secondaryGray.400" }, { bg: "whiteAlpha.50" });
   const bgFocus = useColorModeValue({ bg: "secondaryGray.300" }, { bg: "whiteAlpha.100" });
+  const chartFontColor = useColorModeValue("secondaryGray.600", "white");
 
   function onClickCountButton(): void {
     let tempOptions = _.cloneDeep(options);
     tempOptions.series[0].data[3] += 10;
     setOptions(tempOptions);
-    setCount(count+10)
+    setCount(count + 10);
     console.log("count", options.series[0].data[3]);
   }
+
+  useEffect(() => {
+    let tempOptions = _.cloneDeep(options);
+    tempOptions.series[0].markArea.label.color = chartFontColor;
+    tempOptions.title.subtextStyle.color = chartFontColor;
+    tempOptions.xAxis.axisLabel.color = chartFontColor;
+    tempOptions.yAxis.axisLabel.color = chartFontColor;
+    setOptions(tempOptions);
+  }, [chartFontColor]);
 
   return (
     <Card justifyContent="center" alignItems="center" flexDirection="column" w="100%" mb="0px" {...rest}>
