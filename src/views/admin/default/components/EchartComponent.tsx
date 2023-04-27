@@ -8,11 +8,24 @@ import { echartOptions } from "variables/charts";
 import ECharts from "echarts-for-react";
 import { useState, useEffect } from "react";
 import _ from "lodash";
+import { atom, useAtom } from "jotai";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+
+export const optionsAtom = atom(echartOptions);
+export const countAtom = atom(0);
 
 export default function EchartComponent(props: { [x: string]: any }) {
   const { ...rest } = props;
-  const [options, setOptions] = useState(echartOptions);
-  const [count, setCount] = useState(0);
+
+  // react
+  // const [options, setOptions] = useState(echartOptions);
+  // const [count, setCount] = useState(0);
+
+  // jotai
+  const [options, setOptions] = useAtom(optionsAtom);
+  const [count, setCount] = useAtom(countAtom);
+
   // Chakra Color Mode
   const textColorSecondary = useColorModeValue("secondaryGray.600", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
