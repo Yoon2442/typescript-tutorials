@@ -11,6 +11,7 @@ import _ from "lodash";
 import { atom, useAtom } from "jotai";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { getMeasurementInformation } from "api/ArpltnInforInqireSvc";
 
 export const optionsAtom = atom(echartOptions);
 export const countAtom = atom(0);
@@ -51,6 +52,11 @@ export default function EchartComponent(props: { [x: string]: any }) {
     setCount(count + 10);
     console.log("count", options.series[0].data[3]);
   }
+
+  const fetchMeasurementInformation = async () => {
+    const testInformation = await getMeasurementInformation("종로구", "month", 1, 100);
+    console.log(testInformation)
+  };
 
   useEffect(() => {
     let tempOptions = _.cloneDeep(options);
@@ -96,6 +102,19 @@ export default function EchartComponent(props: { [x: string]: any }) {
           borderRadius="7px"
         >
           Count +
+        </Button>
+        <Button
+          bg={boxBg}
+          ms="auto"
+          onClick={() => {
+            fetchMeasurementInformation();
+          }}
+          fontSize="sm"
+          fontWeight="500"
+          color={textColorSecondary}
+          borderRadius="7px"
+        >
+          Get measurement information
         </Button>
         <Button
           ms="auto"
