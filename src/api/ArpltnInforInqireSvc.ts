@@ -16,3 +16,14 @@ export const getMeasurementInformation = async (
   );
   return response.data;
 };
+
+export const getInformationnByCity = async (
+  sidoName: string,
+  pageNo: number,
+  numOfRows: number
+): Promise<any> => {
+  const response = await api.get(
+    `/getCtprvnRltmMesureDnsty?sidoName=${sidoName}&pageNo=${pageNo}&numOfRows=${numOfRows}&returnType=json&serviceKey=${serviceKey}`
+  );
+  return response.data;
+};

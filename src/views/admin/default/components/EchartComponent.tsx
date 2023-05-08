@@ -31,10 +31,6 @@ export default function EchartComponent(props: { [x: string]: any }) {
   // Chakra Color Mode
   const textColorSecondary = useColorModeValue("secondaryGray.600", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
-  const iconColor = useColorModeValue("brand.500", "white");
-  const bgButton = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
-  const bgHover = useColorModeValue({ bg: "secondaryGray.400" }, { bg: "whiteAlpha.50" });
-  const bgFocus = useColorModeValue({ bg: "secondaryGray.300" }, { bg: "whiteAlpha.100" });
   const chartFontColor = useColorModeValue("secondaryGray.600", "white");
 
   function onClickMinusCountButton(): void {
@@ -55,7 +51,7 @@ export default function EchartComponent(props: { [x: string]: any }) {
 
   const fetchMeasurementInformation = async () => {
     const testInformation = await getMeasurementInformation("종로구", "month", 1, 100);
-    console.log(testInformation)
+    console.log(testInformation);
   };
 
   useEffect(() => {
@@ -70,10 +66,6 @@ export default function EchartComponent(props: { [x: string]: any }) {
   return (
     <Card justifyContent="center" alignItems="center" flexDirection="column" w="100%" mb="0px" {...rest}>
       <Flex align="center" justify="space-between" w="100%" pe="20px" pt="5px">
-        <Button bg={boxBg} fontSize="sm" fontWeight="500" color={textColorSecondary} borderRadius="7px">
-          <Icon as={MdOutlineCalendarToday} color={textColorSecondary} me="4px" />
-          This month
-        </Button>
         <Button
           bg={boxBg}
           ms="auto"
@@ -115,22 +107,6 @@ export default function EchartComponent(props: { [x: string]: any }) {
           borderRadius="7px"
         >
           Get measurement information
-        </Button>
-        <Button
-          ms="auto"
-          alignItems="center"
-          justifyContent="center"
-          bg={bgButton}
-          _hover={bgHover}
-          _focus={bgFocus}
-          _active={bgFocus}
-          w="37px"
-          h="37px"
-          lineHeight="100%"
-          borderRadius="10px"
-          {...rest}
-        >
-          <Icon as={MdBarChart} color={iconColor} w="24px" h="24px" />
         </Button>
       </Flex>
       <Flex w="100%" flexDirection={{ base: "column", lg: "row" }}>
