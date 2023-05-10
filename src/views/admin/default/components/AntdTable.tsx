@@ -5,9 +5,10 @@ import { useState, useEffect } from "react";
 import Card from "components/card/Card";
 import Menu from "components/menu/MainMenu";
 import { getInformationnByCity } from "api/ArpltnInforInqireSvc";
-import 'assets/css/AntdTable.css';
+import "assets/css/AntdTable.css";
 export default function AntdTable() {
   const textColor = useColorModeValue("secondaryGray.900", "white");
+  const backGroundColor = useColorModeValue("white", "#0b1437");
   const chartTheme = useColorModeValue(false, true);
   const columns = [
     {
@@ -28,7 +29,11 @@ export default function AntdTable() {
     {
       // title: `미세먼지 농도 (단위 : ㎍/㎥)`,
       title: () => {
-        return <>미세먼지 농도 PM<sub>10</sub> (단위 : ㎍/㎥)</>;
+        return (
+          <>
+            미세먼지 농도 PM<sub>10</sub> (단위 : ㎍/㎥)
+          </>
+        );
       },
       dataIndex: "pm10Value",
       key: "pm10Value",
@@ -53,6 +58,7 @@ export default function AntdTable() {
       <ConfigProvider
         theme={{
           algorithm: chartTheme ? darkAlgorithm : defaultAlgorithm,
+          token: { colorPrimary: textColor, colorBgBase: backGroundColor },
         }}
       >
         <Flex px="25px" mb="8px" justifyContent="space-between" align="center">
@@ -62,7 +68,7 @@ export default function AntdTable() {
           <Menu />
         </Flex>
         <Box>
-          <Table  dataSource={dataSource} columns={columns} pagination={{pageSize:5}} />
+          <Table dataSource={dataSource} columns={columns} pagination={{ pageSize: 5 }} />
         </Box>
       </ConfigProvider>
     </Card>
