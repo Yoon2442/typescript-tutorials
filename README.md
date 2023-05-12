@@ -7,13 +7,28 @@
 <p>&nbsp;</p>
 
 Horizon UI 로 TypeScript 학습
+three.js 학습(web 환경 3d 라이브러리)
 
+#### 2023-05-12 오류</br>
+
+```
+export 'unstable_act' (imported as 'React') was not found in 'react' (possible exports: Children, Component, Fragment, Profiler, PureComponent, StrictMode, Suspense, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED, cloneElement, createContext, createElement, createFactory, createRef, forwardRef, isValidElement, lazy, memo, useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState, version)
+```
+
+Chat GPT 의 에러 원인 중</br>
+React와 React-DOM의 버전이 호환되는지 확인하세요.
+React-DOM이 React보다 먼저 업데이트된 경우에는 React가 DOM에 연결되어 작동하지 않을 수 있습니다. 따라서 React와 React-DOM의 버전이 호환되는지 확인하는 것이 중요합니다.</br>
+이 있었다. 참고하여 `package.json` 파일을 수정하여 react와 react-dom 의 버전을 일치시켰다.
+
+```json
+		"react": "^18.0.2",
+		"react-dom": "^18.0.2",
+```
 <p>&nbsp;</p>
 
 [<img alt="Horizon UI TypeScript" src="https://i.ibb.co/KV6FDvK/introduction-image-ts.png" /> ](https://github.com/horizon-ui/horizon-ui-chakra-ts)
 
 <p>&nbsp;</p>
-
 
 Get started and build your dream web app with Horizon UI, the most trendiest &
 innovative Open Source Admin Template for Chakra UI & React!
@@ -34,12 +49,13 @@ Authentication Pages, Profile and so on. Just choose between a Basic Design or a
 cover and you are good to go!
 
 ### 🎉 [NEW] React Tables V8
+
 Horizon is also using the latest version of the React Tables (v8) library, you can access it by cloning the [/feature/react-table-v8](https://github.com/horizon-ui/horizon-ui-chakra-ts/tree/feature/react-table-v8) branch!
 
 ### 🎉 [NEW] Horizon UI Components
+
 All the main components from both versions, this will help you to see and interact with all & the latest added components of Horizon (also, new components are on the way, stay tuned)! ⚡️
 <a href="https://horizon-ui.com/components/?ref=readme-horizon-ts" target="_blank">See all components</a>
-
 
 ### Documentation
 
@@ -83,8 +99,8 @@ pages here.</a>
 
 ### Versions
 
-| Free Version                                                                                                       | PRO Version                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| Free Version                                                                                                           | PRO Version                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | [![Horizon UI](https://i.ibb.co/KV6FDvK/introduction-image-ts.png)](https://www.horizon-ui.com/?ref=readme-horizon-ts) | [![Horizon UI PRO](https://i.ibb.co/R6jFKRM/introduction-image-1.png)](https://www.horizon-ui.com/pro?ref=readme-horizon-ts) |
 
 ### Figma Version
