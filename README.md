@@ -6,24 +6,22 @@
 
 <p>&nbsp;</p>
 
-Horizon UI 로 TypeScript 학습
-three.js 학습(web 환경 3d 라이브러리)
+1. Horizon UI 로 TypeScript 학습
+2. three.js 학습(web 환경 3d 라이브러리)
 
-#### 2023-05-12 오류</br>
-
-```
-export 'unstable_act' (imported as 'React') was not found in 'react' (possible exports: Children, Component, Fragment, Profiler, PureComponent, StrictMode, Suspense, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED, cloneElement, createContext, createElement, createFactory, createRef, forwardRef, isValidElement, lazy, memo, useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState, version)
-```
-
-Chat GPT 의 에러 원인 중</br>
-React와 React-DOM의 버전이 호환되는지 확인하세요.
+>#### 2023-05-12 오류</br>
+>```
+>export 'unstable_act' (imported as 'React') was not found in 'react' (possible exports: Children, Component, Fragment, Profiler, PureComponent, StrictMode, Suspense, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED, cloneElement, createContext, createElement, createFactory, createRef, forwardRef, isValidElement, lazy, memo, useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState, version)
+>```
+>Chat GPT 의 에러 원인 중</br>
+>React와 React-DOM의 버전이 호환되는지 확인하세요.
 React-DOM이 React보다 먼저 업데이트된 경우에는 React가 DOM에 연결되어 작동하지 않을 수 있습니다. 따라서 React와 React-DOM의 버전이 호환되는지 확인하는 것이 중요합니다.</br>
-이 있었다. 참고하여 `package.json` 파일을 수정하여 react와 react-dom 의 버전을 일치시켰다.
-
-```json
+>이 있었다. 참고하여 `package.json` 파일을 수정하여 react와 react-dom 의 버전을 일치시켰다.
+>```json
 		"react": "^18.0.2",
 		"react-dom": "^18.0.2",
-```
+>```
+
 <p>&nbsp;</p>
 
 [<img alt="Horizon UI TypeScript" src="https://i.ibb.co/KV6FDvK/introduction-image-ts.png" /> ](https://github.com/horizon-ui/horizon-ui-chakra-ts)
