@@ -4,8 +4,6 @@
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 [![GitHub issues open](https://img.shields.io/github/issues/horizon-ui/horizon-ui-chakra-ts.svg?maxAge=2592000)](https://github.com/horizon-ui/horizon-ui-chakra-ts/issues?q=is%3Aopen+is%3Aissue)
 
-<p>&nbsp;</p>
-
 1. Horizon UI 로 TypeScript 학습
 2. three.js 학습(web 환경 3d 라이브러리)
 
@@ -14,7 +12,9 @@
 > #### 2023-05-12 오류</br>
 >
 > ```
-> export 'unstable_act' (imported as 'React') was not found in 'react' (possible exports: Children, Component, Fragment, Profiler, PureComponent, StrictMode, Suspense, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED, cloneElement, createContext, createElement, createFactory, createRef, forwardRef, isValidElement, lazy, memo, useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState, version)
+> export 'unstable_act' (imported as 'React') was not found in 'react' (possible exports: Children, Component, Fragment, Profiler, PureComponent,
+>StrictMode, Suspense, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED, cloneElement, createContext, createElement, createFactory, createRef,
+>forwardRef, isValidElement, lazy, memo, useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState, version)
 > ```
 >
 > Chat GPT 의 에러 원인 중</br>
@@ -23,8 +23,8 @@
 > 이 있었다. 참고하여 `package.json` 파일을 수정하여 react와 react-dom 의 버전을 일치시켰다.
 >
 > ```json
-> 		"react": "^18.0.2",
-> 		"react-dom": "^18.0.2",
+>"react": "^18.0.2",
+>"react-dom": "^18.0.2",
 > ```
 
 <p>&nbsp;</p>
