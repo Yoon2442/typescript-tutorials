@@ -10,12 +10,9 @@
 <p>&nbsp;</p>
 
 > #### 2023-05-12 오류</br>
->
-> ```
-> export 'unstable_act' (imported as 'React') was not found in 'react' (possible exports: Children, Component, Fragment, Profiler, PureComponent,
->StrictMode, Suspense, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED, cloneElement, createContext, createElement, createFactory, createRef,
->forwardRef, isValidElement, lazy, memo, useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState, version)
-> ```
+>```export 'unstable_act' (imported as 'React') was not found in 'react' 
+>(possible exports: Children, Component, Fragment, Profiler, PureComponent, StrictMode, Suspense, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED, cloneElement, createContext, createElement, createFactory, createRef, forwardRef, isValidElement, lazy, memo, useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState, version)
+>```
 >
 > Chat GPT 의 에러 원인 중</br>
 > React와 React-DOM의 버전이 호환되는지 확인하세요.
@@ -23,8 +20,8 @@
 > 이 있었다. 참고하여 `package.json` 파일을 수정하여 react와 react-dom 의 버전을 일치시켰다.
 >
 > ```json
->"react": "^18.0.2",
->"react-dom": "^18.0.2",
+> "react": "^18.0.2",
+> "react-dom": "^18.0.2",
 > ```
 
 <p>&nbsp;</p>
