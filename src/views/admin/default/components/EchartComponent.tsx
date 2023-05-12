@@ -1,12 +1,11 @@
 // Chakra imports
-import { Box, Button, Flex, Icon, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Flex,  useColorModeValue } from "@chakra-ui/react";
 // Custom components
 import Card from "components/card/Card";
-import { MdBarChart, MdOutlineCalendarToday } from "react-icons/md";
 // Assets
 import { echartOptions } from "variables/charts";
 import ECharts from "echarts-for-react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import _ from "lodash";
 import { atom, useAtom } from "jotai";
 import { QueryClient, QueryClientProvider } from "react-query";

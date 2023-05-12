@@ -7,11 +7,18 @@ import NFTMarketplace from 'views/admin/marketplace';
 import Profile from 'views/admin/profile';
 import DataTables from 'views/admin/dataTables';
 import RTL from 'views/admin/rtl';
-
+import CustomTest from 'views/admin/customTest';
 // Auth Imports
 import SignInCentered from 'views/auth/signIn';
 
 const routes = [
+	{
+		name: 'Custom Test',
+		layout: '/admin',
+		path: '/custom-test',
+		icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
+		component: CustomTest
+	},
 	{
 		name: 'Main Dashboard',
 		layout: '/admin',
