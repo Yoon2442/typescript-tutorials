@@ -10,9 +10,8 @@
 <p>&nbsp;</p>
 
 > #### 2023-05-12 오류</br>
->```export 'unstable_act' (imported as 'React') was not found in 'react' 
+>export 'unstable_act' (imported as 'React') was not found in 'react' 
 >(possible exports: Children, Component, Fragment, Profiler, PureComponent, StrictMode, Suspense, __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED, cloneElement, createContext, createElement, createFactory, createRef, forwardRef, isValidElement, lazy, memo, useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState, version)
->```
 >
 > Chat GPT 의 에러 원인 중</br>
 > React와 React-DOM의 버전이 호환되는지 확인하세요.
