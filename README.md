@@ -7,7 +7,9 @@
 <p>&nbsp;</p>
 
 # TypeScript Tutorials with Horizon UI TypeScript
+
 ## 목차
+
 1. [Horizon UI 및 TypeScript 학습](#1-horizon-ui-및-typescript-학습)
 2. [E-Chart 학습(차트 라이브러리)](#2-e-chart-학습차트-라이브러리)
 3. [Ant Design 학습(UI 라이브러리)](#3-ant-design-학습ui-라이브러리)
@@ -16,7 +18,9 @@
 <p>&nbsp;</p>
 
 ## 1. Horizon UI 및 TypeScript 학습
-### 시작하기  
+
+### 시작하기
+
 </br>
 
 [<img alt="Horizon UI TypeScript" src="https://i.ibb.co/KV6FDvK/introduction-image-ts.png" /> ](https://github.com/horizon-ui/horizon-ui-chakra-ts)
@@ -130,7 +134,6 @@ new people that already use Horizon UI!
 
 📄 [Horizon UI License](https://www.simmmple.com/licenses?ref=readme-horizon-ts)
 
-
 <p>&nbsp;</p>
 
 ## 2. E-Chart 학습(차트 라이브러리)
@@ -146,19 +149,57 @@ new people that already use Horizon UI!
 <p>&nbsp;</p>
 
 ## 5. Trouble shooting
+
 > ### 2023-05-12 오류</br>
 >
-> export 'unstable_act' (imported as 'React') was not found in 'react'
-> (possible exports: Children, Component, Fragment, Profiler, PureComponent, StrictMode, Suspense, \_\_SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED, cloneElement, createContext, createElement, createFactory, createRef, forwardRef, isValidElement, lazy, memo, useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState, version)
+> **export 'unstable_act' (imported as 'React') was not found in 'react'
+> (possible exports: Children, Component, Fragment, Profiler, PureComponent, StrictMode, Suspense, \_\_SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED, cloneElement, createContext, createElement, createFactory, createRef, forwardRef, isValidElement, lazy, memo, useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState, version)**
 >
-> Chat GPT에서 에러 원인 해결을 위한 솔루션 중</br>
-> React와 React-DOM의 버전이 호환되는지 확인하세요.
-> React-DOM이 React보다 먼저 업데이트된 경우에는 React가 DOM에 연결되어 작동하지 않을 수 있습니다. 따라서 React와 React-DOM의 버전이 호환되는지 확인하는 것이 중요합니다.</br>
-> 이 있었다. 참고하여 `package.json` 파일을 수정하여 react와 react-dom 의 버전을 일치시켰다.
+> Chat GPT에서 에러 원인 해결을 위한 솔루션 중</br> > `React와 React-DOM의 버전이 호환되는지 확인하세요.
+React-DOM이 React보다 먼저 업데이트된 경우에는 React가 DOM에 연결되어 작동하지 않을 수 있습니다. 따라서 React와 React-DOM의 버전이 호환되는지 확인하는 것이 중요합니다.`</br>
+> 가 있었다. 참고하여 `package.json` 파일을 수정하여 react와 react-dom 의 버전을 일치시켰다.
+>
+> #### Solution
 >
 > ```json
 > "react": "^18.0.2",
 > "react-dom": "^18.0.2",
 > ```
+
+> ### 2023-05-15 오류</br>
+>
+> **Property 'orbitControls' does not exist on type 'JSX.IntrinsicElements'.**
+>
+> ```typescript
+> import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+> extend({ OrbitControls });
+> ```
+>
+> OrbitControls를 extend 후 아래의 Orbit jsx를 생성했는데 orbitControls 태그에서 위와 같은 에러가 발생했다.
+>
+> ```typescript
+> const Orbit = () => {
+>   const { camera, gl } = useThree();
+>   return <orbitControls args={[camera, gl.domElement]} />;
+> };
+> ```
+>
+> #### Solution
+>
+> ```typescript
+> import { Canvas, useFrame, extend, useThree, ReactThreeFiber } from "@react-three/fiber";
+> import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+> extend({ OrbitControls });
+>
+> declare global {
+>   namespace JSX {
+>     interface IntrinsicElements {
+>       orbitControls: ReactThreeFiber.Object3DNode<OrbitControls, typeof OrbitControls>;
+>     }
+>   }
+> }
+> ```
+>
+> \[참고\] [github - pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber/issues/130)
 
 <p>&nbsp;</p>
